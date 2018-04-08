@@ -41,6 +41,10 @@ public class UI {
     void displayString(String string) {
         infoPanel.addText(string);
     }
+    
+    public void clearText(){
+    	infoPanel.clearText();
+    }
 
     public void displayMurderAnnouncement() {
         displayString("WELCOME TO CLUEDO");
@@ -163,6 +167,15 @@ public class UI {
     public String getPlayerName() {
         return playerName;
     }
+    
+    public String inputQuestion(String q) {
+        displayString(q);
+        inputString();
+        displayString("> " + input);
+        String answer = input.trim().toLowerCase();
+        return answer;
+    }
+
 
     public void inputToken(Tokens tokens) {
         boolean valid = false;

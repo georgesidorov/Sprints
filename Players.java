@@ -24,6 +24,15 @@ public class Players implements Iterable<Player>, Iterator<Player> {
     public void add(Player player) {
         players.add(player);
     }
+    
+    public boolean containsToken(String name) {
+        for (Player player : players) {
+            if (player.hasToken(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean contains(String name) {
         for (Player player : players) {

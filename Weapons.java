@@ -27,5 +27,16 @@ public class Weapons implements Iterable<Weapon>, Iterator<Weapon> {
         iterator = weapons.iterator ();
         return iterator;
     }
+    
+    public Weapon getWeapon(String s)
+    {
+    	for(Weapon w : weapons)
+    	{
+    			if(w.hasName(s))
+    			return w;
+    	}
+    	
+    	return null;
+    }
 
 }

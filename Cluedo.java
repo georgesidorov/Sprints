@@ -12,6 +12,7 @@ public class Cluedo {
     private Player currentPlayer;
     private Token currentToken;
     private final Deck deck = new Deck();
+    private Questions questions;
 
     private void announceTheGame() {
         ui.displayMurderAnnouncement();
@@ -29,6 +30,8 @@ public class Cluedo {
                 numPlayersSoFar++;
             }
         } while (!ui.inputIsDone() && numPlayersSoFar<MAX_NUM_PLAYERS);
+        
+        questions = new Questions(ui, players, tokens, deck);
     }
 
     private void rollToStart() {
@@ -101,7 +104,7 @@ public class Cluedo {
                     if (map.isDoor(currentPosition, newPosition)) {
                         Room room = map.getRoom(newPosition);
                         currentToken.enterRoom(room);
-                        //Room.addItem();
+                        questions.makeQuestion(room, weapons, currentPlayer);
                     } else {
                         currentToken.setPosition(newPosition);
                     }

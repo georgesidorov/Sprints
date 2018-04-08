@@ -9,6 +9,10 @@ public class Player {
         this.token = token;
         cards = new Cards();
     }
+    
+    public boolean hasToken(String name) {
+        return this.token.hasName(name);
+    }
 
     public boolean hasName(String name) {
         return this.name.toLowerCase().trim().equals(name.toLowerCase().trim());
